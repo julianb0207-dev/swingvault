@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt &amp; Impressum – SwingVault</title>
+  <meta name="description" content="Kontaktiere SwingVault oder lies unser Impressum gemäß § 24 Mediengesetz." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px;
+    }
+    .contact-info-block {
+      display: flex; flex-direction: column; gap: 24px;
+    }
+    .contact-info-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 24px 28px;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .contact-info-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: var(--gold-dim); border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .contact-info-label {
+      font-family: var(--font-mono); font-size: .72rem;
+      color: var(--text-muted); text-transform: uppercase;
+      letter-spacing: .08em; margin-bottom: 4px;
+    }
+    .contact-info-value {
+      font-size: .95rem; color: var(--white); line-height: 1.5;
+    }
+    .contact-info-value a { color: var(--gold); }
+    .map-placeholder {
+      background: var(--bg-subtle); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+      color: var(--text-muted); font-size: .88rem;
+    }
+    .map-placeholder span { font-size: 2rem; }
+    .impressum-section {
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border);
+    }
+    .success-msg {
+      display: none; background: rgba(46,125,69,.15);
+      border: 1px solid rgba(46,125,69,.3); border-radius: var(--radius);
+      padding: 16px 20px; color: #4caf73; font-size: .9rem; margin-top: 16px;
+    }
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <nav class="site-nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="SwingVault – Startseite">
+        <span class="logo-mark" aria-hidden="true">SV</span>SwingVault
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="product.html">Produkt</a></li>
+        <li><a href="about.html">Über uns</a></li>
+        <li><a href="contact.html" aria-current="page">Kontakt</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="langToggle" aria-label="Sprache wechseln"><span id="langLabel">EN</span></button>
+        <a href="product.html" class="btn-primary">Kostenlos starten</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- Kontakt -->
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-tag">Aufgabe 6 – Kontakt</span>
+        <h1 class="page-title">Kontakt</h1>
+        <p class="page-sub">Fragen, Feedback oder Kooperationsanfragen? Wir freuen uns von dir zu hören. Unser Team antwortet in der Regel innerhalb von 1–2 Werktagen.</p>
+      </div>
+    </div>
+
+    <section aria-labelledby="contact-title">
+      <div class="section-inner">
+        <h2 class="section-title" id="contact-title" style="margin-bottom:0;">Schreib uns</h2>
+        <div class="contact-grid">
+
+          <!-- Formular -->
+          <div>
+            <form class="contact-form" id="contactForm" novalidate aria-label="Kontaktformular">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="c-name">Name <span aria-label="Pflichtfeld">*</span></label>
+                  <input type="text" id="c-name" name="name" autocomplete="name"
+                    required aria-required="true" placeholder="Max Mustermann" />
+                </div>
+                <div class="form-group">
+                  <label for="c-email">E-Mail <span aria-label="Pflichtfeld">*</span></label>
+                  <input type="email" id="c-email" name="email" autocomplete="email"
+                    required aria-required="true" placeholder="max@beispiel.at" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="c-subject">Betreff</label>
+                <select id="c-subject" name="subject" aria-label="Betreff auswählen">
+                  <option value="">Bitte wählen...</option>
+                  <option value="support">Technischer Support</option>
+                  <option value="billing">Abo &amp; Abrechnung</option>
+                  <option value="feedback">Feedback &amp; Verbesserungen</option>
+                  <option value="press">Presse &amp; Medien</option>
+                  <option value="partnership">Kooperation &amp; Partner</option>
+                  <option value="other">Sonstiges</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="c-message">Nachricht <span aria-label="Pflichtfeld">*</span></label>
+                <textarea id="c-message" name="message"
+                  required aria-required="true"
+                  placeholder="Wie können wir dir helfen?"></textarea>
+              </div>
+              <div class="form-group">
+                <label style="display:flex; gap:10px; align-items:flex-start; cursor:pointer;">
+                  <input type="checkbox" id="c-privacy" name="privacy" required aria-required="true"
+                    style="margin-top:3px; accent-color:var(--gold);" />
+                  <span style="font-size:.85rem; color:var(--text-muted);">
+                    Ich habe die <a href="privacy.html">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu. <span aria-label="Pflichtfeld">*</span>
+                  </span>
+                </label>
+              </div>
+              <button type="submit" class="btn-primary"
+                style="align-self:flex-start; padding:12px 32px; font-size:.95rem;"
+                id="submitBtn">
+                Nachricht senden
+              </button>
+              <div class="success-msg" id="successMsg" role="alert" aria-live="polite">
+                ✓ Vielen Dank! Deine Nachricht wurde erfolgreich gesendet. Wir melden uns innerhalb von 1–2 Werktagen.
+              </div>
+            </form>
+          </div>
+
+          <!-- Kontaktinfos -->
+          <div class="contact-info-block">
+            <div class="contact-info-card">
+              <div class="contact-info-icon" aria-hidden="true">📍</div>
+              <div>
+                <div class="contact-info-label">Adresse</div>
+                <div class="contact-info-value">
+                  SwingVault Software GmbH<br>
+                  Wiedner Hauptstraße 120<br>
+                  1050 Wien, Österreich
+                </div>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="contact-info-icon" aria-hidden="true">✉️</div>
+              <div>
+                <div class="contact-info-label">E-Mail</div>
+                <div class="contact-info-value">
+                  <a href="mailto:hello@swingvault.app">hello@swingvault.app</a><br>
+                  <a href="mailto:support@swingvault.app">support@swingvault.app</a>
+                </div>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="contact-info-icon" aria-hidden="true">📞</div>
+              <div>
+                <div class="contact-info-label">Telefon</div>
+                <div class="contact-info-value">
+                  <a href="tel:+43123456789">+43 1 234 56 78</a><br>
+                  <span style="font-size:.82rem; color:var(--text-muted);">Mo–Fr, 9:00–17:00 Uhr</span>
+                </div>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="contact-info-icon" aria-hidden="true">⏱️</div>
+              <div>
+                <div class="contact-info-label">Reaktionszeit</div>
+                <div class="contact-info-value">
+                  Support: 1–2 Werktage<br>
+                  Presse: gleicher Tag
+                </div>
+              </div>
+            </div>
+            <div class="map-placeholder" role="img" aria-label="Kartenausschnitt: Wien 5. Bezirk, Wiedner Hauptstraße 120">
+              <span aria-hidden="true">🗺️</span>
+              <span>Wien, 5. Bezirk<br>Wiedner Hauptstraße 120</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Impressum -->
+    <section class="impressum-section" id="impressum" aria-labelledby="impressum-title">
+      <div class="section-inner">
+        <div class="content-wrap" style="padding:64px 0;">
+          <span class="page-tag">Aufgabe 6 – Impressum</span>
+          <h2 class="section-title" id="impressum-title">Impressum</h2>
+          <p style="color:var(--text-muted); margin-bottom:32px;">
+            Angaben gemäß § 24 Mediengesetz (MedienG) und § 5 E-Commerce-Gesetz (ECG), Österreich.
+          </p>
+
+          <h2>Medieninhaber und Herausgeber</h2>
+          <div class="info-box">
+            <strong>SwingVault Software GmbH</strong><br><br>
+            Wiedner Hauptstraße 120<br>
+            1050 Wien, Österreich<br><br>
+            <strong>E-Mail:</strong> <a href="mailto:hello@swingvault.app">hello@swingvault.app</a><br>
+            <strong>Tel:</strong> <a href="tel:+43123456789">+43 1 234 56 78</a><br>
+            <strong>Web:</strong> <a href="https://julianb0207-dev.github.io/swingvault">julianb0207-dev.github.io/swingvault</a>
+          </div>
+
+          <h2>Unternehmensangaben</h2>
+          <table>
+            <tbody>
+              <tr><td style="width:200px;">Rechtsform</td><td>Gesellschaft mit beschränkter Haftung (GmbH)</td></tr>
+              <tr><td>Firmenbuchnummer</td><td>FN 123456 a</td></tr>
+              <tr><td>Firmenbuchgericht</td><td>Handelsgericht Wien</td></tr>
+              <tr><td>UID-Nummer</td><td>ATU 12345678</td></tr>
+              <tr><td>Geschäftsführung</td><td>Julian Binderberger</td></tr>
+              <tr><td>Gründungsjahr</td><td>2024</td></tr>
+              <tr><td>Stammkapital</td><td>€ 35.000,–</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Gewerbliche Angaben</h2>
+          <table>
+            <tbody>
+              <tr><td style="width:200px;">Gewerbe</td><td>Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik</td></tr>
+              <tr><td>Gewerbebehörde</td><td>Magistratisches Bezirksamt des 5. Bezirks, Wien</td></tr>
+              <tr><td>Mitgliedschaft</td><td>Wirtschaftskammer Wien (WKW), Fachgruppe UBIT</td></tr>
+              <tr><td>Berufsrecht</td><td>Gewerbeordnung 1994 (GewO), abrufbar auf <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">ris.bka.gv.at</a></td></tr>
+            </tbody>
+          </table>
+
+          <h2>Grundlegende Richtung des Mediums</h2>
+          <p>Diese Website dient der Präsentation und dem Vertrieb der SwingVault-Softwareplattform, einem KI-gestützten Analyse- und Coaching-Tool für Golfspieler. Zielgruppe sind Golfamateure, ambitionierte Hobbyspieler sowie professionelle Golftrainer.</p>
+
+          <h2>Haftungsausschluss</h2>
+          <p>Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Alle Angaben auf dieser Website wurden nach bestem Wissen erstellt, erheben jedoch keinen Anspruch auf Vollständigkeit, Aktualität und Richtigkeit.</p>
+
+          <h2>Urheberrecht</h2>
+          <p>Sämtliche Inhalte dieser Website (Texte, Grafiken, SVG-Logos, Code) unterliegen dem österreichischen Urheberrecht. Eine Vervielfältigung, Verbreitung oder öffentliche Zugänglichmachung ohne ausdrückliche Genehmigung der SwingVault Software GmbH ist untersagt.</p>
+          <p>Verwendete Medien und deren Lizenzen:</p>
+          <ul>
+            <li>Schriftarten Cormorant Garamond, DM Sans, DM Mono: Google Fonts, Open Font Licence (OFL)</li>
+            <li>Bildmaterial (Unsplash): Unsplash Licence – kostenlose kommerzielle Nutzung gestattet</li>
+            <li>Videomaterial (Pexels): Pexels Licence – kostenlose kommerzielle Nutzung gestattet</li>
+            <li>UI-Sounds (Pixabay): Pixabay Licence – royalty-free, kommerzielle Nutzung gestattet</li>
+          </ul>
+
+          <h2>Online-Streitbeilegung</h2>
+          <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Unsere E-Mail-Adresse lautet: <a href="mailto:hello@swingvault.app">hello@swingvault.app</a></p>
+          <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="SwingVault Startseite">
+          <span class="logo-mark" aria-hidden="true">SV</span> SwingVault
+        </a>
+        <p class="footer-tagline">KI-gestützte Golfschwunganalyse für Amateure, Profis und Trainer.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Produkt</div>
+        <ul>
+          <li><a href="product.html">Features</a></li>
+          <li><a href="product.html#pricing">Preise</a></li>
+          <li><a href="license.html">Lizenz</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Unternehmen</div>
+        <ul>
+          <li><a href="about.html">Über uns</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="contact.html#impressum">Impressum</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Rechtliches</div>
+        <ul>
+          <li><a href="privacy.html">Datenschutz</a></li>
+          <li><a href="accessibility.html">Barrierefreiheit</a></li>
+          <li><a href="license.html">AGB</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 SwingVault Software GmbH · Wien, Österreich</p>
+      <nav class="footer-legal-links" aria-label="Rechtliche Links">
+        <a href="privacy.html">Datenschutz</a>
+        <a href="contact.html#impressum">Impressum</a>
+        <a href="accessibility.html">Barrierefreiheit</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="cookieBanner" role="region" aria-label="Cookie-Hinweis" aria-live="polite">
+    <p class="cookie-text">Wir verwenden Cookies für anonyme Nutzungsanalysen. Details in der <a href="privacy.html">Datenschutzerklärung</a>.</p>
+    <div class="cookie-btns">
+      <button class="btn-ghost" id="cookieDecline">Ablehnen</button>
+      <button class="btn-primary" id="cookieAccept">Akzeptieren</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Mock Formular-Submit
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('successMsg').style.display = 'block';
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = 'Gesendet ✓';
+      this.reset();
+    });
+  </script>
+</body>
+</html>

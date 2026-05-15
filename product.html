@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produkt – SwingVault</title>
+  <meta name="description" content="Alle Features von SwingVault Pro: KI-Schwunganalyse, Fortschritts-Tracking, Trainer-Dashboard. Jetzt kostenlos testen." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .feature-detail {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center; padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .feature-detail:last-child { border-bottom: none; }
+    .feature-detail.reverse { direction: rtl; }
+    .feature-detail.reverse > * { direction: ltr; }
+    .feature-detail-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--white); margin-bottom: 16px; line-height: 1.2;
+    }
+    .feature-detail-text p {
+      color: var(--text-muted); line-height: 1.75; margin-bottom: 20px;
+    }
+    .feature-list { list-style: none; padding: 0; margin-bottom: 28px; }
+    .feature-list li {
+      font-size: .9rem; color: var(--text);
+      padding: 8px 0; border-bottom: 1px solid var(--border);
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .feature-list li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+    .feature-visual {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 32px;
+      min-height: 280px; display: flex; align-items: center; justify-content: center;
+    }
+    .mockup-analysis {
+      width: 100%;
+    }
+    .analysis-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 20px;
+    }
+    .analysis-title { font-family: var(--font-mono); font-size: .78rem; color: var(--text-muted); }
+    .analysis-score {
+      font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--gold);
+    }
+    .analysis-score span { font-size: .9rem; color: var(--text-muted); font-family: var(--font-body); }
+    .analysis-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+    .a-metric {
+      background: var(--bg-subtle); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px;
+    }
+    .a-metric-label { font-size: .72rem; color: var(--text-muted); margin-bottom: 4px; font-family: var(--font-mono); }
+    .a-metric-val { font-family: var(--font-display); font-size: 1.3rem; color: var(--white); }
+    .a-metric-bar { height: 4px; background: var(--bg); border-radius: 2px; margin-top: 8px; }
+    .a-metric-fill { height: 100%; border-radius: 2px; background: var(--gold); }
+    .progress-list { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+    .progress-item { }
+    .progress-label {
+      display: flex; justify-content: space-between;
+      font-size: .82rem; color: var(--text-muted); margin-bottom: 6px;
+    }
+    .progress-bar { height: 6px; background: var(--bg-subtle); border-radius: 3px; }
+    .progress-fill { height: 100%; border-radius: 3px; }
+    .coach-mockup { width: 100%; }
+    .coach-header {
+      font-family: var(--font-mono); font-size: .75rem; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .student-list { display: flex; flex-direction: column; gap: 10px; }
+    .student-item {
+      background: var(--bg-subtle); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 12px 16px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .student-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold-dim); display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: .85rem; color: var(--gold); flex-shrink: 0;
+    }
+    .student-name { font-size: .88rem; color: var(--white); margin-bottom: 2px; }
+    .student-meta { font-size: .75rem; color: var(--text-muted); font-family: var(--font-mono); }
+    .student-score {
+      margin-left: auto; font-family: var(--font-display);
+      font-size: 1.1rem; color: var(--gold); font-weight: 700;
+    }
+    .faq-list { margin-top: 40px; }
+    .faq-item {
+      border-bottom: 1px solid var(--border); padding: 20px 0;
+    }
+    .faq-q {
+      font-size: 1rem; font-weight: 600; color: var(--white);
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-q::after { content: '+'; color: var(--gold); font-size: 1.3rem; flex-shrink: 0; }
+    .faq-a { font-size: .9rem; color: var(--text-muted); line-height: 1.7; margin-top: 12px; }
+    @media (max-width: 900px) {
+      .feature-detail { grid-template-columns: 1fr; gap: 32px; }
+      .feature-detail.reverse { direction: ltr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <nav class="site-nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="SwingVault – Startseite">
+        <span class="logo-mark" aria-hidden="true">SV</span>SwingVault
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" data-de="Start" data-en="Home">Start</a></li>
+        <li><a href="product.html" aria-current="page" data-de="Produkt" data-en="Product">Produkt</a></li>
+        <li><a href="about.html" data-de="Über uns" data-en="About us">Über uns</a></li>
+        <li><a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="langToggle" aria-label="Sprache wechseln"><span id="langLabel">EN</span></button>
+        <a href="#pricing" class="btn-primary" data-de="Kostenlos starten" data-en="Start for free">Kostenlos starten</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-tag" data-de="Produkt" data-en="Product">Produkt</span>
+        <h1 class="page-title" data-de="SwingVault Pro – alle Features im Überblick" data-en="SwingVault Pro – all features at a glance">SwingVault Pro – alle Features im Überblick</h1>
+        <p class="page-sub" data-de="Von der Videoanalyse bis zum Trainer-Dashboard: SwingVault gibt dir die Werkzeuge, die Profigolfer seit Jahren nutzen – jetzt für jeden zugänglich." data-en="From video analysis to the coach dashboard: SwingVault gives you the tools professional golfers have used for years – now accessible to everyone.">Von der Videoanalyse bis zum Trainer-Dashboard: SwingVault gibt dir die Werkzeuge, die Profigolfer seit Jahren nutzen – jetzt für jeden zugänglich.</p>
+      </div>
+    </div>
+
+    <!-- Feature Details -->
+    <section aria-labelledby="features-detail-title">
+      <div class="section-inner">
+        <span class="section-tag" data-de="Funktionen im Detail" data-en="Features in detail">Funktionen im Detail</span>
+        <h2 class="section-title" id="features-detail-title" style="margin-bottom:0;" data-de="Was SwingVault kann" data-en="What SwingVault can do">Was SwingVault kann</h2>
+
+        <!-- Feature 1: KI-Analyse -->
+        <div class="feature-detail" role="region" aria-label="KI-Schwunganalyse Feature">
+          <div class="feature-detail-text">
+            <h2 data-de="KI-Schwunganalyse in unter 30 Sekunden" data-en="AI swing analysis in under 30 seconds">KI-Schwunganalyse in unter 30 Sekunden</h2>
+            <p data-de="Lade ein Video deines Schwungs hoch – von der Seite, von vorne oder von hinten. Unser Modell erkennt automatisch 17 Körperpunkte und berechnet Winkel, Rotation und Timing im Millisekunden-Raster." data-en="Upload a video of your swing – from the side, front or back. Our model automatically detects 17 body points and calculates angles, rotation and timing to the millisecond.">Lade ein Video deines Schwungs hoch – von der Seite, von vorne oder von hinten. Unser Modell erkennt automatisch 17 Körperpunkte und berechnet Winkel, Rotation und Timing im Millisekunden-Raster.</p>
+            <ul class="feature-list" aria-label="KI-Analyse Features">
+              <li data-de="Schlägerwinkel bei Kontakt (±0.5° Genauigkeit)" data-en="Club angle at impact (±0.5° accuracy)">Schlägerwinkel bei Kontakt (±0.5° Genauigkeit)</li>
+              <li data-de="Hüft- und Schulterrotation in der Backswing-Phase" data-en="Hip and shoulder rotation in the backswing phase">Hüft- und Schulterrotation in der Backswing-Phase</li>
+              <li data-de="Gewichtsverlagerung und Balance-Index" data-en="Weight transfer and balance index">Gewichtsverlagerung und Balance-Index</li>
+              <li data-de="Tempo-Verhältnis Backswing zu Downswing" data-en="Tempo ratio backswing to downswing">Tempo-Verhältnis Backswing zu Downswing</li>
+              <li data-de="Konsistenz-Score über mehrere Schwünge" data-en="Consistency score across multiple swings">Konsistenz-Score über mehrere Schwünge</li>
+            </ul>
+          </div>
+          <div class="feature-visual" role="img" aria-label="Mockup der KI-Analyse Ergebnisansicht">
+            <div class="mockup-analysis">
+              <div class="analysis-header">
+                <div class="analysis-title">ANALYSE — DRIVER #47</div>
+                <div class="analysis-score">92 <span>/ 100</span></div>
+              </div>
+              <div class="analysis-metrics">
+                <div class="a-metric">
+                  <div class="a-metric-label">SCHLÄGERWINKEL</div>
+                  <div class="a-metric-val">87.2°</div>
+                  <div class="a-metric-bar"><div class="a-metric-fill" style="width:87%"></div></div>
+                </div>
+                <div class="a-metric">
+                  <div class="a-metric-label">HÜFTROTATION</div>
+                  <div class="a-metric-val">44.8°</div>
+                  <div class="a-metric-bar"><div class="a-metric-fill" style="width:74%"></div></div>
+                </div>
+                <div class="a-metric">
+                  <div class="a-metric-label">TEMPO-RATIO</div>
+                  <div class="a-metric-val">3 : 1</div>
+                  <div class="a-metric-bar"><div class="a-metric-fill" style="width:92%"></div></div>
+                </div>
+                <div class="a-metric">
+                  <div class="a-metric-label">KONSISTENZ</div>
+                  <div class="a-metric-val">97 %</div>
+                  <div class="a-metric-bar"><div class="a-metric-fill" style="width:97%"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2: Fortschritts-Tracking -->
+        <div class="feature-detail reverse" role="region" aria-label="Fortschritts-Tracking Feature">
+          <div class="feature-detail-text">
+            <h2 data-de="Sieh wie du besser wirst" data-en="See yourself improve">Sieh wie du besser wirst</h2>
+            <p data-de="Fortschritt ist nur sichtbar wenn er gemessen wird. SwingVault speichert jeden Schwung und zeigt dir in übersichtlichen Diagrammen genau, welche Aspekte sich verbessert haben." data-en="Progress is only visible when it is measured. SwingVault stores every swing and shows you in clear charts exactly which aspects have improved.">Fortschritt ist nur sichtbar wenn er gemessen wird. SwingVault speichert jeden Schwung und zeigt dir in übersichtlichen Diagrammen genau, welche Aspekte sich verbessert haben.</p>
+            <ul class="feature-list" aria-label="Tracking Features">
+              <li data-de="Verlaufsdiagramme für alle Metriken (30 Tage bis 1 Jahr)" data-en="Trend charts for all metrics (30 days to 1 year)">Verlaufsdiagramme für alle Metriken (30 Tage bis 1 Jahr)</li>
+              <li data-de="Schwung-Vergleich: vorher / nachher nebeneinander" data-en="Swing comparison: before / after side by side">Schwung-Vergleich: vorher / nachher nebeneinander</li>
+              <li data-de="Wöchentliche Zusammenfassungs-E-Mail" data-en="Weekly summary email">Wöchentliche Zusammenfassungs-E-Mail</li>
+              <li data-de="Exportierbare PDF-Berichte für Trainer-Gespräche" data-en="Exportable PDF reports for coach meetings">Exportierbare PDF-Berichte für Trainer-Gespräche</li>
+            </ul>
+          </div>
+          <div class="feature-visual" role="img" aria-label="Mockup des Fortschritts-Trackings">
+            <div class="progress-list">
+              <div style="font-family:var(--font-mono); font-size:.75rem; color:var(--text-muted); margin-bottom:8px;">FORTSCHRITT — LETZTER MONAT</div>
+              <div class="progress-item">
+                <div class="progress-label"><span>Schlägerwinkel</span><span style="color:var(--gold);">+12 %</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width:82%; background:var(--gold);"></div></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label"><span>Hüftrotation</span><span style="color:#4caf73;">+8 %</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width:68%; background:#2e7d45;"></div></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label"><span>Konsistenz</span><span style="color:#4caf73;">+19 %</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width:91%; background:#2e7d45;"></div></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label"><span>Tempo</span><span style="color:var(--gold);">+5 %</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width:74%; background:var(--gold);"></div></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label"><span>Balance</span><span style="color:#4caf73;">+22 %</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width:88%; background:#2e7d45;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3: Coach Dashboard -->
+        <div class="feature-detail" role="region" aria-label="Trainer-Dashboard Feature">
+          <div class="feature-detail-text">
+            <h2 data-de="Trainer-Dashboard für Profis" data-en="Coach Dashboard for professionals">Trainer-Dashboard für Profis</h2>
+            <p data-de="Golftrainer können mit dem Coach-Plan bis zu 20 Schüler verwalten, deren Analysen kommentieren und individuelle Übungspläne erstellen – alles in einer Oberfläche." data-en="With the Coach plan, golf coaches can manage up to 20 pupils, comment on their analyses and create individual training plans – all in one interface.">Golftrainer können mit dem Coach-Plan bis zu 20 Schüler verwalten, deren Analysen kommentieren und individuelle Übungspläne erstellen – alles in einer Oberfläche.</p>
+            <ul class="feature-list" aria-label="Coach Dashboard Features">
+              <li data-de="Schüler-Übersicht mit Fortschritt auf einen Blick" data-en="Pupil overview with progress at a glance">Schüler-Übersicht mit Fortschritt auf einen Blick</li>
+              <li data-de="Inline-Kommentare direkt im Analyse-Video" data-en="Inline comments directly in the analysis video">Inline-Kommentare direkt im Analyse-Video</li>
+              <li data-de="Individuelle Übungsplan-Erstellung und -Zuweisung" data-en="Individual training plan creation and assignment">Individuelle Übungsplan-Erstellung und -Zuweisung</li>
+              <li data-de="Vergleich von Schüler-Schwüngen untereinander" data-en="Comparison of pupils' swings with each other">Vergleich von Schüler-Schwüngen untereinander</li>
+            </ul>
+          </div>
+          <div class="feature-visual" role="img" aria-label="Mockup des Trainer-Dashboards">
+            <div class="coach-mockup">
+              <div class="coach-header">TRAINER-DASHBOARD — 5 SCHÜLER AKTIV</div>
+              <div class="student-list">
+                <div class="student-item">
+                  <div class="student-avatar" aria-hidden="true">MK</div>
+                  <div>
+                    <div class="student-name">Max Körner</div>
+                    <div class="student-meta">3 Analysen diese Woche</div>
+                  </div>
+                  <div class="student-score" aria-label="Score 88">88</div>
+                </div>
+                <div class="student-item">
+                  <div class="student-avatar" aria-hidden="true">AL</div>
+                  <div>
+                    <div class="student-name">Anna Leitner</div>
+                    <div class="student-meta">1 neue Analyse</div>
+                  </div>
+                  <div class="student-score" aria-label="Score 74">74</div>
+                </div>
+                <div class="student-item">
+                  <div class="student-avatar" aria-hidden="true">TR</div>
+                  <div>
+                    <div class="student-name">Thomas Reiter</div>
+                    <div class="student-meta">Übungsplan ausstehend</div>
+                  </div>
+                  <div class="student-score" aria-label="Score 91">91</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" style="background:var(--bg-subtle);" aria-labelledby="pricing-title">
+      <div class="section-inner">
+        <div class="section-header centered">
+          <span class="section-tag" data-de="Preise" data-en="Pricing">Preise</span>
+          <h2 class="section-title" id="pricing-title" data-de="Einfache, transparente Preise" data-en="Simple, transparent pricing">Einfache, transparente Preise</h2>
+          <p class="section-sub" data-de="Starte kostenlos. Upgrade wenn du mehr willst." data-en="Start free. Upgrade when you want more.">Starte kostenlos. Upgrade wenn du mehr willst.</p>
+        </div>
+        <div class="pricing-grid" role="list">
+          <article class="pricing-card" role="listitem" aria-labelledby="plan-free-2">
+            <div class="plan-name">Free</div>
+            <div class="plan-price" id="plan-free-2">0 <span data-de="/ Monat" data-en="/ month">/ Monat</span></div>
+            <p class="plan-desc" data-de="Für Einsteiger" data-en="For beginners">Für Einsteiger</p>
+            <ul class="plan-features">
+              <li>3 Analysen pro Monat</li>
+              <li>Basis-Schwungmessung</li>
+              <li>Fortschrittsdiagramm (30 Tage)</li>
+              <li class="muted">KI-Coaching-Tipps</li>
+              <li class="muted">Video-Export</li>
+            </ul>
+            <button class="btn-plan btn-plan-outline">Kostenlos starten</button>
+          </article>
+          <article class="pricing-card featured" role="listitem" aria-labelledby="plan-pro-2">
+            <div class="pricing-badge">Beliebtester Plan</div>
+            <div class="plan-name">Pro</div>
+            <div class="plan-price" id="plan-pro-2"><sup>€</sup>9<span>.99 / Monat</span></div>
+            <p class="plan-desc">Für ambitionierte Amateure</p>
+            <ul class="plan-features">
+              <li>Unbegrenzte Analysen</li>
+              <li>Vollständige KI-Analyse</li>
+              <li>KI-Coaching-Tipps</li>
+              <li>Langzeit-Tracking (1 Jahr)</li>
+              <li>Video-Export (HD)</li>
+            </ul>
+            <button class="btn-plan btn-plan-gold">Pro starten</button>
+          </article>
+          <article class="pricing-card" role="listitem" aria-labelledby="plan-coach-2">
+            <div class="plan-name">Coach</div>
+            <div class="plan-price" id="plan-coach-2"><sup>€</sup>29<span>.99 / Monat</span></div>
+            <p class="plan-desc">Für Golftrainer &amp; Clubs</p>
+            <ul class="plan-features">
+              <li>Alles aus Pro</li>
+              <li>Bis zu 20 Schüler</li>
+              <li>Trainer-Dashboard</li>
+              <li>Übungspläne erstellen</li>
+              <li>Prioritäts-Support</li>
+            </ul>
+            <button class="btn-plan btn-plan-outline">Coach starten</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section aria-labelledby="faq-title">
+      <div class="section-inner">
+        <div class="section-header centered">
+          <span class="section-tag">FAQ</span>
+          <h2 class="section-title" id="faq-title" data-de="Häufige Fragen" data-en="Frequently asked questions">Häufige Fragen</h2>
+        </div>
+        <div class="faq-list" style="max-width:720px; margin:0 auto;">
+          <div class="faq-item">
+            <div class="faq-q" tabindex="0" role="button" aria-expanded="true" data-de="Welche Videoformate werden unterstützt?" data-en="Which video formats are supported?">Welche Videoformate werden unterstützt?</div>
+            <div class="faq-a" data-de="SwingVault unterstützt MP4, MOV und AVI in bis zu 4K Auflösung. Für beste Ergebnisse empfehlen wir Aufnahmen mit mindestens 60 fps und guter Beleuchtung." data-en="SwingVault supports MP4, MOV and AVI at up to 4K resolution. For best results we recommend recordings at at least 60 fps and good lighting.">SwingVault unterstützt MP4, MOV und AVI in bis zu 4K Auflösung. Für beste Ergebnisse empfehlen wir Aufnahmen mit mindestens 60 fps und guter Beleuchtung.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" tabindex="0" role="button" aria-expanded="false" data-de="Kann ich meinen Plan jederzeit kündigen?" data-en="Can I cancel my plan at any time?">Kann ich meinen Plan jederzeit kündigen?</div>
+            <div class="faq-a" data-de="Ja, du kannst jederzeit in den Account-Einstellungen kündigen. Die Kündigung wird zum Ende der aktuellen Abrechnungsperiode wirksam. Es gibt keine Mindestlaufzeit." data-en="Yes, you can cancel at any time in the account settings. Cancellation takes effect at the end of the current billing period. There is no minimum term.">Ja, du kannst jederzeit in den Account-Einstellungen kündigen. Die Kündigung wird zum Ende der aktuellen Abrechnungsperiode wirksam. Es gibt keine Mindestlaufzeit.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" tabindex="0" role="button" aria-expanded="false" data-de="Wo werden meine Videos gespeichert?" data-en="Where are my videos stored?">Wo werden meine Videos gespeichert?</div>
+            <div class="faq-a" data-de="Alle Videos und Daten werden ausschließlich auf DSGVO-konformen Servern in der EU (Frankfurt, Deutschland) gespeichert. Videos werden nach der Analyse 90 Tage aufbewahrt und danach automatisch gelöscht, sofern du sie nicht manuell speicherst." data-en="All videos and data are stored exclusively on GDPR-compliant servers in the EU (Frankfurt, Germany). Videos are retained for 90 days after analysis and then automatically deleted, unless you save them manually.">Alle Videos und Daten werden ausschließlich auf DSGVO-konformen Servern in der EU gespeichert. Videos werden nach der Analyse 90 Tage aufbewahrt und danach automatisch gelöscht.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" tabindex="0" role="button" aria-expanded="false" data-de="Ersetzt SwingVault einen echten Golftrainer?" data-en="Does SwingVault replace a real golf coach?">Ersetzt SwingVault einen echten Golftrainer?</div>
+            <div class="faq-a" data-de="Nein – SwingVault ist ein Hilfsmittel, kein Ersatz. Wir empfehlen, die Analyseergebnisse gemeinsam mit einem zertifizierten Trainer zu besprechen. Unser Coach-Plan ist speziell dafür ausgelegt, die Zusammenarbeit zwischen Spieler und Trainer zu verbessern." data-en="No – SwingVault is a tool, not a replacement. We recommend discussing the analysis results with a certified coach. Our Coach plan is specifically designed to improve collaboration between player and coach.">Nein – SwingVault ist ein Hilfsmittel, kein Ersatz. Wir empfehlen, die Analyseergebnisse gemeinsam mit einem zertifizierten Trainer zu besprechen.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="SwingVault Startseite">
+          <span class="logo-mark" aria-hidden="true">SV</span> SwingVault
+        </a>
+        <p class="footer-tagline">KI-gestützte Golfschwunganalyse für Amateure, Profis und Trainer.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Produkt</div>
+        <ul>
+          <li><a href="product.html">Features</a></li>
+          <li><a href="#pricing">Preise</a></li>
+          <li><a href="license.html">Lizenz</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Unternehmen</div>
+        <ul>
+          <li><a href="about.html">Über uns</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="contact.html#impressum">Impressum</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Rechtliches</div>
+        <ul>
+          <li><a href="privacy.html">Datenschutz</a></li>
+          <li><a href="accessibility.html">Barrierefreiheit</a></li>
+          <li><a href="license.html">AGB</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 SwingVault Software GmbH · Wien, Österreich</p>
+      <nav class="footer-legal-links" aria-label="Rechtliche Links">
+        <a href="privacy.html">Datenschutz</a>
+        <a href="contact.html#impressum">Impressum</a>
+        <a href="accessibility.html">Barrierefreiheit</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="cookieBanner" role="region" aria-label="Cookie-Hinweis" aria-live="polite">
+    <p class="cookie-text">Wir verwenden Cookies für anonyme Nutzungsanalysen. Details in der <a href="privacy.html">Datenschutzerklärung</a>.</p>
+    <div class="cookie-btns">
+      <button class="btn-ghost" id="cookieDecline">Ablehnen</button>
+      <button class="btn-primary" id="cookieAccept">Akzeptieren</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

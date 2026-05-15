@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barrierefreiheit – SwingVault</title>
+  <meta name="description" content="Barrierefreiheitserklärung der SwingVault Website gemäß WCAG 2.2 AA." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .wcag-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 20px; margin: 32px 0;
+    }
+    .wcag-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 24px;
+    }
+    .wcag-card.pass { border-left: 3px solid #4caf73; }
+    .wcag-card.partial { border-left: 3px solid var(--gold); }
+    .wcag-principle {
+      font-family: var(--font-mono); font-size: .72rem;
+      color: var(--text-muted); text-transform: uppercase;
+      letter-spacing: .08em; margin-bottom: 6px;
+    }
+    .wcag-title {
+      font-size: .95rem; font-weight: 600;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .wcag-status {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .78rem; font-family: var(--font-mono);
+      padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
+    }
+    .wcag-status.pass { background: rgba(76,175,115,.15); color: #4caf73; }
+    .wcag-status.partial { background: rgba(201,168,76,.15); color: var(--gold); }
+    .wcag-desc { font-size: .84rem; color: var(--text-muted); line-height: 1.6; }
+    .feedback-form {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 32px; margin-top: 40px;
+    }
+    @media (max-width: 700px) { .wcag-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <nav class="site-nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="SwingVault – Startseite">
+        <span class="logo-mark" aria-hidden="true">SV</span>SwingVault
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="product.html">Produkt</a></li>
+        <li><a href="about.html">Über uns</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="langToggle" aria-label="Sprache wechseln"><span id="langLabel">EN</span></button>
+        <a href="product.html" class="btn-primary">Kostenlos starten</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-tag">Aufgabe 1 – Barrierefreiheit</span>
+        <h1 class="page-title">Barrierefreiheitserklärung</h1>
+        <p class="page-sub">SwingVault ist bestrebt, seine Website und Anwendung für alle Menschen zugänglich zu machen – unabhängig von Behinderungen oder technischen Einschränkungen. Wir orientieren uns an den Web Content Accessibility Guidelines (WCAG) 2.2, Konformitätsstufe AA.</p>
+      </div>
+    </div>
+
+    <div class="content-wrap">
+
+      <h2>Konformitätsstatus</h2>
+      <p>Diese Website ist mit den WCAG 2.2 Erfolgskriterien auf Stufe AA <strong style="color:#4caf73;">weitgehend konform</strong>. Die nachfolgende Tabelle dokumentiert den Status der vier WCAG-Grundprinzipien.</p>
+
+      <div class="wcag-grid" role="list" aria-label="WCAG 2.2 Konformitätsübersicht">
+
+        <div class="wcag-card pass" role="listitem">
+          <div class="wcag-principle">Prinzip 1</div>
+          <div class="wcag-title">Wahrnehmbar</div>
+          <div class="wcag-status pass" aria-label="Status: Erfüllt">✓ Erfüllt</div>
+          <p class="wcag-desc">Alle Bilder und grafischen Elemente haben aussagekräftige Alt-Texte. Farbkontrastverhältnisse erfüllen die 4,5:1 Anforderung (AA). Texte sind ohne Informationsverlust auf 200 % vergrößerbar. Keine Informationen werden ausschließlich über Farbe vermittelt.</p>
+        </div>
+
+        <div class="wcag-card pass" role="listitem">
+          <div class="wcag-principle">Prinzip 2</div>
+          <div class="wcag-title">Bedienbar</div>
+          <div class="wcag-status pass" aria-label="Status: Erfüllt">✓ Erfüllt</div>
+          <p class="wcag-desc">Alle interaktiven Elemente sind per Tastatur erreichbar (Tab-Reihenfolge). Ein Skip-Link zum Hauptinhalt ist vorhanden. Fokus-Indikatoren sind sichtbar und erfüllen WCAG 2.2 Focus Appearance (2.4.11). Keine zeitlich begrenzten Inhalte ohne Verlängerungsmöglichkeit.</p>
+        </div>
+
+        <div class="wcag-card pass" role="listitem">
+          <div class="wcag-principle">Prinzip 3</div>
+          <div class="wcag-title">Verständlich</div>
+          <div class="wcag-status pass" aria-label="Status: Erfüllt">✓ Erfüllt</div>
+          <p class="wcag-desc">Die Sprache der Seite ist im HTML-Tag deklariert (lang="de"). Formularfelder haben beschreibende Labels. Fehlermeldungen sind klar und lösungsorientiert formuliert. Der Sprachschalter aktualisiert das lang-Attribut dynamisch.</p>
+        </div>
+
+        <div class="wcag-card partial" role="listitem">
+          <div class="wcag-principle">Prinzip 4</div>
+          <div class="wcag-title">Robust</div>
+          <div class="wcag-status partial" aria-label="Status: Teilweise erfüllt">◐ Weitgehend erfüllt</div>
+          <p class="wcag-desc">HTML ist valide und semantisch strukturiert (Landmark-Rollen, ARIA-Labels). Die App-Mockups in der Hero-Section sind als aria-hidden markiert. Bekannte Einschränkung: die interaktiven SVG-Grafiken der Markenformen sind nicht vollständig screen-reader-optimiert (geplante Verbesserung Q2 2025).</p>
+        </div>
+
+      </div>
+
+      <h2>Umgesetzte Maßnahmen im Detail</h2>
+
+      <h3>Tastaturnavigation</h3>
+      <p>Alle Links, Buttons und Formularfelder sind ausschließlich per Tastatur erreichbar. Die Tab-Reihenfolge folgt dem visuellen Layout. Der Skip-Link „Zum Hauptinhalt springen" erscheint beim ersten Tab-Druck sichtbar im oberen Seitenbereich.</p>
+
+      <h3>Farbkontrast</h3>
+      <p>Primärer Fließtext (#e8e4d8 auf #0a1a10): Kontrastverhältnis 14,2:1 — übertrifft AA und AAA. Goldene Akzentfarbe (#c9a84c auf #0a1a10): Kontrastverhältnis 6,8:1 — erfüllt AA. Sekundärtext (#8a9e8e auf #0a1a10): 4,7:1 — erfüllt AA knapp.</p>
+
+      <h3>Screenreader-Unterstützung</h3>
+      <p>Getestet mit VoiceOver (macOS/iOS) und NVDA (Windows). Alle dekorativen Elemente sind mit aria-hidden="true" markiert. Wichtige Statusmeldungen (Cookie-Banner, Sprachänderung) verwenden aria-live-Regionen.</p>
+
+      <h3>Reduzierte Bewegung</h3>
+      <p>Alle CSS-Animationen und Übergänge werden deaktiviert wenn das Betriebssystem „Reduzierte Bewegung" aktiviert hat (prefers-reduced-motion: reduce).</p>
+
+      <h3>Hoher Kontrast</h3>
+      <p>Die Website reagiert auf das Systemmerkmal prefers-contrast: more und erhöht Kontraste von Rahmen und Sekundärtexten automatisch.</p>
+
+      <h3>Responsive Design</h3>
+      <p>Die Website ist vollständig responsiv und auf Bildschirmbreiten ab 320 px nutzbar. Texte fließen um, Layouts wechseln auf einspaltige Darstellung. Keine horizontale Scrollbar auf Mobilgeräten.</p>
+
+      <h2>Bekannte Einschränkungen</h2>
+      <ul>
+        <li>Die SVG-Markenlogos in der About-Seite sind nicht vollständig für Screenreader optimiert. Alternativbeschreibungen als aria-label sind vorhanden, eine ARIA-Strukturierung der Grafiken ist für Q2 2025 geplant.</li>
+        <li>Videomaterial (Analyse-Demos) enthält derzeit keine Untertitel. Untertitel werden mit dem nächsten Release hinzugefügt.</li>
+      </ul>
+
+      <h2>Verwendete Test-Tools</h2>
+      <ul>
+        <li><strong>WAVE Web Accessibility Evaluation Tool</strong> (wave.webaim.org) – strukturelle Prüfung</li>
+        <li><strong>axe DevTools</strong> (Browser-Extension) – automatisierte WCAG-Prüfung</li>
+        <li><strong>Colour Contrast Analyser</strong> (TPGi) – manuelle Kontrastprüfung</li>
+        <li><strong>VoiceOver</strong> (macOS) – Screenreader-Test</li>
+        <li><strong>Lighthouse</strong> (Chrome DevTools) – Accessibility-Score</li>
+      </ul>
+
+      <h2>Feedback und Kontakt</h2>
+      <p>Wenn du Barrierefreiheitsprobleme auf unserer Website feststellst oder Unterstützung benötigst, melde dich bitte bei uns:</p>
+
+      <div class="feedback-form" role="form" aria-labelledby="feedback-title">
+        <h3 id="feedback-title" style="font-family:var(--font-display); color:var(--white); margin-bottom:20px;">Barrierefreiheit melden</h3>
+        <form class="contact-form" novalidate aria-label="Barrierefreiheits-Feedback Formular">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bf-name">Name</label>
+              <input type="text" id="bf-name" name="name" autocomplete="name" placeholder="Dein Name" />
+            </div>
+            <div class="form-group">
+              <label for="bf-email">E-Mail <span aria-label="Pflichtfeld">*</span></label>
+              <input type="email" id="bf-email" name="email" autocomplete="email" required placeholder="deine@email.at" aria-required="true" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bf-page">Betroffene Seite / URL</label>
+            <input type="url" id="bf-page" name="page" placeholder="https://swingvault.app/..." />
+          </div>
+          <div class="form-group">
+            <label for="bf-message">Beschreibung des Problems <span aria-label="Pflichtfeld">*</span></label>
+            <textarea id="bf-message" name="message" required aria-required="true" placeholder="Bitte beschreibe das Barrierefreiheitsproblem so genau wie möglich..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="align-self:flex-start; padding:12px 28px; font-size:.95rem;">Feedback senden</button>
+        </form>
+      </div>
+
+      <p style="margin-top:28px;">Wir bemühen uns, auf Barrierefreiheits-Feedback innerhalb von 5 Werktagen zu antworten. Bei dringenden Anfragen: <a href="mailto:accessibility@swingvault.app">accessibility@swingvault.app</a></p>
+
+      <h2>Durchsetzungsverfahren</h2>
+      <p>Solltest du mit unserer Antwort nicht zufrieden sein, kannst du dich an den österreichischen Monitoring-Beauftragten für Barrierefreiheit wenden oder eine Beschwerde beim Sozialministeriumservice einreichen (gemäß Web-Zugänglichkeits-Gesetz, WZG).</p>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="SwingVault Startseite">
+          <span class="logo-mark" aria-hidden="true">SV</span> SwingVault
+        </a>
+        <p class="footer-tagline">KI-gestützte Golfschwunganalyse für Amateure, Profis und Trainer.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Produkt</div>
+        <ul>
+          <li><a href="product.html">Features</a></li>
+          <li><a href="product.html#pricing">Preise</a></li>
+          <li><a href="license.html">Lizenz</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Unternehmen</div>
+        <ul>
+          <li><a href="about.html">Über uns</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="contact.html#impressum">Impressum</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Rechtliches</div>
+        <ul>
+          <li><a href="privacy.html">Datenschutz</a></li>
+          <li><a href="accessibility.html">Barrierefreiheit</a></li>
+          <li><a href="license.html">AGB</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 SwingVault Software GmbH · Wien, Österreich</p>
+      <nav class="footer-legal-links" aria-label="Rechtliche Links">
+        <a href="privacy.html">Datenschutz</a>
+        <a href="contact.html#impressum">Impressum</a>
+        <a href="accessibility.html">Barrierefreiheit</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="cookieBanner" role="region" aria-label="Cookie-Hinweis" aria-live="polite">
+    <p class="cookie-text">Wir verwenden Cookies für anonyme Nutzungsanalysen. Details in der <a href="privacy.html">Datenschutzerklärung</a>.</p>
+    <div class="cookie-btns">
+      <button class="btn-ghost" id="cookieDecline">Ablehnen</button>
+      <button class="btn-primary" id="cookieAccept">Akzeptieren</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
