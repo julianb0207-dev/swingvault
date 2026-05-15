@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SwingVault – KI-Golfanalyse für Amis &amp; Pros</title>
+  <meta name="description" content="SwingVault analysiert deinen Golfschwung per KI. Lade ein Video hoch und erhalte sofort Feedback zu Technik, Kraft und Konsistenz." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Skip Link (Barrierefreiheit) -->
+  <a href="#main" class="skip-link" data-de="Zum Hauptinhalt springen" data-en="Skip to main content">Zum Hauptinhalt springen</a>
+
+  <!-- Navigation -->
+  <nav class="site-nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="SwingVault – Startseite">
+        <span class="logo-mark" aria-hidden="true">SV</span>
+        SwingVault
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" aria-current="page" data-de="Start" data-en="Home">Start</a></li>
+        <li><a href="product.html" data-de="Produkt" data-en="Product">Produkt</a></li>
+        <li><a href="about.html" data-de="Über uns" data-en="About us">Über uns</a></li>
+        <li><a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="langToggle" aria-label="Sprache wechseln" title="Switch language">
+          <span id="langLabel">EN</span>
+        </button>
+        <a href="product.html" class="btn-primary" data-de="Kostenlos starten" data-en="Start for free">Kostenlos starten</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge" role="text">
+            <span aria-hidden="true">✦</span>
+            <span data-de="Neu: KI-Analyse v2.0 mit Echtzeit-Feedback" data-en="New: AI Analysis v2.0 with real-time feedback">Neu: KI-Analyse v2.0 mit Echtzeit-Feedback</span>
+          </div>
+          <h1 class="hero-title" id="hero-title">
+            <span data-de="Analysiere deinen" data-en="Analyse your">Analysiere deinen</span><br>
+            <em data-de="Swing." data-en="Swing.">Swing.</em>
+            <span data-de="Werde" data-en="Become">Werde</span><br>
+            <span data-de="besser." data-en="better.">besser.</span>
+          </h1>
+          <p class="hero-sub" data-de="SwingVault analysiert deinen Golfschwung per KI. Lade ein Video hoch und erhalte sofort präzises Feedback zu Technik, Hüftrotation, Schlägerwinkel und Konsistenz." data-en="SwingVault analyses your golf swing using AI. Upload a video and instantly receive precise feedback on technique, hip rotation, club angle and consistency.">
+            SwingVault analysiert deinen Golfschwung per KI. Lade ein Video hoch und erhalte sofort präzises Feedback zu Technik, Hüftrotation, Schlägerwinkel und Konsistenz.
+          </p>
+          <div class="hero-cta">
+            <a href="product.html" class="btn-hero" data-de="Gratis testen – kein Kreditkarte" data-en="Try free – no credit card">Gratis testen – keine Kreditkarte</a>
+            <a href="product.html#pricing" class="btn-hero-ghost" data-de="Pläne ansehen" data-en="View plans">Pläne ansehen</a>
+          </div>
+          <div class="hero-stats" role="list" aria-label="Kennzahlen">
+            <div role="listitem">
+              <div class="stat-num">12 k+</div>
+              <div class="stat-label" data-de="aktive Nutzer" data-en="active users">aktive Nutzer</div>
+            </div>
+            <div role="listitem">
+              <div class="stat-num">98 %</div>
+              <div class="stat-label" data-de="Analysegenauigkeit" data-en="analysis accuracy">Analysegenauigkeit</div>
+            </div>
+            <div role="listitem">
+              <div class="stat-num">&lt; 30 s</div>
+              <div class="stat-label" data-de="bis zum Ergebnis" data-en="until result">bis zum Ergebnis</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- App-Mockup -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="app-mockup" role="img" aria-label="Screenshot der SwingVault App mit Swing-Analysediagramm">
+            <div class="mockup-bar">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="mockup-chart">
+              <div class="chart-title">SWING ANALYSIS — DRIVER</div>
+              <div class="chart-bars">
+                <div class="chart-bar" style="height:45%"></div>
+                <div class="chart-bar" style="height:62%"></div>
+                <div class="chart-bar" style="height:55%"></div>
+                <div class="chart-bar active" style="height:88%"></div>
+                <div class="chart-bar" style="height:74%"></div>
+                <div class="chart-bar" style="height:81%"></div>
+                <div class="chart-bar" style="height:69%"></div>
+                <div class="chart-bar active" style="height:92%"></div>
+              </div>
+            </div>
+            <div class="mockup-metrics">
+              <div class="metric-card">
+                <div class="metric-val">87°</div>
+                <div class="metric-label">Schlägerwinkel</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-val">92</div>
+                <div class="metric-label">Score</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-val">+4.2°</div>
+                <div class="metric-label">Hüftrotation</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-val">97%</div>
+                <div class="metric-label">Konsistenz</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Features ──────────────────────────────────────────── -->
+    <section class="features-bg" aria-labelledby="features-title">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag" data-de="Funktionen" data-en="Features">Funktionen</span>
+          <h2 class="section-title" id="features-title" data-de="Alles was du brauchst, um besser zu werden" data-en="Everything you need to improve">Alles was du brauchst, um besser zu werden</h2>
+          <p class="section-sub" data-de="Von der Videoanalyse bis zum Trainingsplan – SwingVault begleitet dich bei jedem Schritt." data-en="From video analysis to training plans – SwingVault supports you every step of the way.">Von der Videoanalyse bis zum Trainingsplan – SwingVault begleitet dich bei jedem Schritt.</p>
+        </div>
+        <div class="features-grid" role="list">
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon" aria-hidden="true">🎥</div>
+            <h3 class="feature-title" data-de="Video-Upload & Analyse" data-en="Video Upload & Analysis">Video-Upload &amp; Analyse</h3>
+            <p class="feature-desc" data-de="Lade beliebige Schwungvideos hoch. Unser KI-Modell erkennt automatisch Körperpunkte und berechnet Winkel, Rotation und Timing." data-en="Upload any swing video. Our AI model automatically detects body points and calculates angles, rotation and timing.">Lade beliebige Schwungvideos hoch. Unser KI-Modell erkennt automatisch Körperpunkte und berechnet Winkel, Rotation und Timing.</p>
+          </article>
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon" aria-hidden="true">📊</div>
+            <h3 class="feature-title" data-de="Fortschritts-Tracking" data-en="Progress Tracking">Fortschritts-Tracking</h3>
+            <p class="feature-desc" data-de="Vergleiche Schwünge über Wochen und Monate. Sieh genau, welche Aspekte sich verbessert haben und welche noch Arbeit brauchen." data-en="Compare swings over weeks and months. See exactly which aspects have improved and which still need work.">Vergleiche Schwünge über Wochen und Monate. Sieh genau, welche Aspekte sich verbessert haben und welche noch Arbeit brauchen.</p>
+          </article>
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon" aria-hidden="true">🤖</div>
+            <h3 class="feature-title" data-de="KI-Coaching-Tipps" data-en="AI Coaching Tips">KI-Coaching-Tipps</h3>
+            <p class="feature-desc" data-de="Personalisierte Hinweise basierend auf deiner Schwungcharakteristik. Konkrete Übungen, keine generischen Ratschläge." data-en="Personalised tips based on your swing characteristics. Concrete drills, not generic advice.">Personalisierte Hinweise basierend auf deiner Schwungcharakteristik. Konkrete Übungen, keine generischen Ratschläge.</p>
+          </article>
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon" aria-hidden="true">📱</div>
+            <h3 class="feature-title" data-de="Web & Mobile" data-en="Web & Mobile">Web &amp; Mobile</h3>
+            <p class="feature-desc" data-de="Nutze SwingVault im Browser oder als App auf iOS und Android. Deine Daten synchronisieren automatisch." data-en="Use SwingVault in the browser or as an app on iOS and Android. Your data syncs automatically.">Nutze SwingVault im Browser oder als App auf iOS und Android. Deine Daten synchronisieren automatisch.</p>
+          </article>
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon" aria-hidden="true">👨‍🏫</div>
+            <h3 class="feature-title" data-de="Trainer-Dashboard" data-en="Coach Dashboard">Trainer-Dashboard</h3>
+            <p class="feature-desc" data-de="Golftrainer können mehrere Schüler verwalten, Analysen kommentieren und Übungspläne direkt in der App teilen." data-en="Golf coaches can manage multiple pupils, comment on analyses and share training plans directly in the app.">Golftrainer können mehrere Schüler verwalten, Analysen kommentieren und Übungspläne direkt in der App teilen.</p>
+          </article>
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon" aria-hidden="true">🔒</div>
+            <h3 class="feature-title" data-de="Datenschutz first" data-en="Privacy first">Datenschutz first</h3>
+            <p class="feature-desc" data-de="Alle Videos und Daten werden DSGVO-konform in der EU gespeichert. Du behältst jederzeit die volle Kontrolle." data-en="All videos and data are stored in the EU in compliance with GDPR. You retain full control at all times.">Alle Videos und Daten werden DSGVO-konform in der EU gespeichert. Du behältst jederzeit die volle Kontrolle.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Pricing ────────────────────────────────────────────── -->
+    <section id="pricing" aria-labelledby="pricing-title">
+      <div class="section-inner">
+        <div class="section-header centered">
+          <span class="section-tag" data-de="Preise" data-en="Pricing">Preise</span>
+          <h2 class="section-title" id="pricing-title" data-de="Einfache, transparente Preise" data-en="Simple, transparent pricing">Einfache, transparente Preise</h2>
+          <p class="section-sub" data-de="Starte kostenlos. Upgrade wenn du mehr willst. Kein Kleingedrucktes." data-en="Start free. Upgrade when you want more. No small print.">Starte kostenlos. Upgrade wenn du mehr willst. Kein Kleingedrucktes.</p>
+        </div>
+        <div class="pricing-grid" role="list">
+
+          <!-- Free -->
+          <article class="pricing-card" role="listitem" aria-labelledby="plan-free">
+            <div class="plan-name" data-de="Free" data-en="Free">Free</div>
+            <div class="plan-price" id="plan-free">0 <span data-de="/ Monat" data-en="/ month">/ Monat</span></div>
+            <p class="plan-desc" data-de="Für Einsteiger und Gelegenheitsspieler" data-en="For beginners and casual players">Für Einsteiger und Gelegenheitsspieler</p>
+            <ul class="plan-features" aria-label="Free Plan Features">
+              <li data-de="3 Analysen pro Monat" data-en="3 analyses per month">3 Analysen pro Monat</li>
+              <li data-de="Basis-Schwungmessung" data-en="Basic swing measurement">Basis-Schwungmessung</li>
+              <li data-de="Fortschrittsdiagramm (30 Tage)" data-en="Progress chart (30 days)">Fortschrittsdiagramm (30 Tage)</li>
+              <li class="muted" data-de="KI-Coaching-Tipps" data-en="AI Coaching Tips">KI-Coaching-Tipps</li>
+              <li class="muted" data-de="Trainer-Dashboard" data-en="Coach Dashboard">Trainer-Dashboard</li>
+              <li class="muted" data-de="Video-Export" data-en="Video Export">Video-Export</li>
+            </ul>
+            <button class="btn-plan btn-plan-outline" aria-label="Free Plan wählen" data-de="Kostenlos starten" data-en="Start free">Kostenlos starten</button>
+          </article>
+
+          <!-- Pro (Featured) -->
+          <article class="pricing-card featured" role="listitem" aria-labelledby="plan-pro">
+            <div class="pricing-badge" data-de="Beliebtester Plan" data-en="Most popular">Beliebtester Plan</div>
+            <div class="plan-name" data-de="Pro" data-en="Pro">Pro</div>
+            <div class="plan-price" id="plan-pro"><sup>€</sup>9<span data-de=".99 / Monat" data-en=".99 / month">.99 / Monat</span></div>
+            <p class="plan-desc" data-de="Für ambitionierte Amateure" data-en="For ambitious amateurs">Für ambitionierte Amateure</p>
+            <ul class="plan-features" aria-label="Pro Plan Features">
+              <li data-de="Unbegrenzte Analysen" data-en="Unlimited analyses">Unbegrenzte Analysen</li>
+              <li data-de="Vollständige KI-Analyse" data-en="Full AI analysis">Vollständige KI-Analyse</li>
+              <li data-de="KI-Coaching-Tipps" data-en="AI Coaching Tips">KI-Coaching-Tipps</li>
+              <li data-de="Langzeit-Tracking (1 Jahr)" data-en="Long-term tracking (1 year)">Langzeit-Tracking (1 Jahr)</li>
+              <li data-de="Video-Export (HD)" data-en="Video Export (HD)">Video-Export (HD)</li>
+              <li class="muted" data-de="Trainer-Dashboard" data-en="Coach Dashboard">Trainer-Dashboard</li>
+            </ul>
+            <button class="btn-plan btn-plan-gold" aria-label="Pro Plan wählen" data-de="Pro starten" data-en="Start Pro">Pro starten</button>
+          </article>
+
+          <!-- Coach -->
+          <article class="pricing-card" role="listitem" aria-labelledby="plan-coach">
+            <div class="plan-name" data-de="Coach" data-en="Coach">Coach</div>
+            <div class="plan-price" id="plan-coach"><sup>€</sup>29<span data-de=".99 / Monat" data-en=".99 / month">.99 / Monat</span></div>
+            <p class="plan-desc" data-de="Für Golftrainer &amp; Clubs" data-en="For golf coaches &amp; clubs">Für Golftrainer &amp; Clubs</p>
+            <ul class="plan-features" aria-label="Coach Plan Features">
+              <li data-de="Alles aus Pro" data-en="Everything in Pro">Alles aus Pro</li>
+              <li data-de="Bis zu 20 Schüler verwalten" data-en="Manage up to 20 pupils">Bis zu 20 Schüler verwalten</li>
+              <li data-de="Trainer-Dashboard" data-en="Coach Dashboard">Trainer-Dashboard</li>
+              <li data-de="Kommentarfunktion" data-en="Comment function">Kommentarfunktion</li>
+              <li data-de="Übungspläne erstellen" data-en="Create training plans">Übungspläne erstellen</li>
+              <li data-de="Prioritäts-Support" data-en="Priority support">Prioritäts-Support</li>
+            </ul>
+            <button class="btn-plan btn-plan-outline" aria-label="Coach Plan wählen" data-de="Coach starten" data-en="Start Coach">Coach starten</button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Medien / Urheberrecht ──────────────────────────────── -->
+    <section class="media-section" aria-labelledby="media-title">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag" data-de="Einblick" data-en="Preview">Einblick</span>
+          <h2 class="section-title" id="media-title" data-de="SwingVault in Aktion" data-en="SwingVault in Action">SwingVault in Aktion</h2>
+          <p class="section-sub" data-de="Bilder, Videos und Sounds die auf dieser Website verwendet werden, stammen aus lizenzfreien Quellen." data-en="Images, videos and sounds used on this website are sourced from licence-free sources.">Bilder, Videos und Sounds die auf dieser Website verwendet werden, stammen aus lizenzfreien Quellen.</p>
+        </div>
+        <div class="media-grid" role="list" aria-label="Medienvorschau">
+          <figure class="media-card" role="listitem">
+            <div class="media-thumb" role="img" aria-label="Golfspieler beim Abschlag auf einem grünen Fairway">⛳</div>
+            <figcaption class="media-info">
+              <div class="media-title" data-de="Fairway Analyse" data-en="Fairway Analysis">Fairway Analyse</div>
+              <div class="media-license">Unsplash – CC0 / Unsplash Licence</div>
+            </figcaption>
+          </figure>
+          <figure class="media-card" role="listitem">
+            <div class="media-thumb" role="img" aria-label="Animiertes Diagramm eines Golfschwungs">🎬</div>
+            <figcaption class="media-info">
+              <div class="media-title" data-de="Schwung-Demo (Video)" data-en="Swing Demo (Video)">Schwung-Demo (Video)</div>
+              <div class="media-license">Pexels – CC0 / Free to use</div>
+            </figcaption>
+          </figure>
+          <figure class="media-card" role="listitem">
+            <div class="media-thumb" role="img" aria-label="Interface-Icon Set">🎵</div>
+            <figcaption class="media-info">
+              <div class="media-title" data-de="UI-Sounds &amp; Feedback-Töne" data-en="UI Sounds &amp; Feedback Tones">UI-Sounds &amp; Feedback-Töne</div>
+              <div class="media-license">Pixabay – Pixabay Licence (royalty-free)</div>
+            </figcaption>
+          </figure>
+        </div>
+        <p style="margin-top:24px; font-size:.82rem; color:var(--text-muted);">
+          <strong style="color:var(--text);" data-de="Schriftarten:" data-en="Fonts:">Schriftarten:</strong>
+          Cormorant Garamond &amp; DM Sans – Google Fonts, Open Font Licence (OFL) |
+          DM Mono – Google Fonts, Open Font Licence (OFL)
+        </p>
+      </div>
+    </section>
+
+    <!-- ── CTA ───────────────────────────────────────────────── -->
+    <section aria-labelledby="cta-title" style="padding-top:0;">
+      <div class="section-inner">
+        <div class="cta-banner">
+          <h2 class="cta-title" id="cta-title" data-de="Bereit, deinen Swing zu verbessern?" data-en="Ready to improve your swing?">Bereit, deinen Swing zu verbessern?</h2>
+          <p class="cta-sub" data-de="Starte heute kostenlos. Kein Kreditkarte, kein Risiko." data-en="Start free today. No credit card, no risk.">Starte heute kostenlos. Kein Kreditkarte, kein Risiko.</p>
+          <div class="cta-btns">
+            <a href="product.html" class="btn-hero" data-de="Jetzt starten" data-en="Get started now">Jetzt starten</a>
+            <a href="about.html" class="btn-hero-ghost" data-de="Mehr über uns" data-en="Learn more about us">Mehr über uns</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="SwingVault Startseite">
+          <span class="logo-mark" aria-hidden="true">SV</span> SwingVault
+        </a>
+        <p class="footer-tagline" data-de="KI-gestützte Golfschwunganalyse für Amateure, Profis und Trainer." data-en="AI-powered golf swing analysis for amateurs, professionals and coaches.">KI-gestützte Golfschwunganalyse für Amateure, Profis und Trainer.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title" data-de="Produkt" data-en="Product">Produkt</div>
+        <ul>
+          <li><a href="product.html" data-de="Features" data-en="Features">Features</a></li>
+          <li><a href="product.html#pricing" data-de="Preise" data-en="Pricing">Preise</a></li>
+          <li><a href="license.html" data-de="Lizenz" data-en="Licence">Lizenz</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title" data-de="Unternehmen" data-en="Company">Unternehmen</div>
+        <ul>
+          <li><a href="about.html" data-de="Über uns" data-en="About us">Über uns</a></li>
+          <li><a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+          <li><a href="contact.html#impressum" data-de="Impressum" data-en="Imprint">Impressum</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title" data-de="Rechtliches" data-en="Legal">Rechtliches</div>
+        <ul>
+          <li><a href="privacy.html" data-de="Datenschutz" data-en="Privacy">Datenschutz</a></li>
+          <li><a href="accessibility.html" data-de="Barrierefreiheit" data-en="Accessibility">Barrierefreiheit</a></li>
+          <li><a href="license.html" data-de="AGB" data-en="T&amp;C">AGB</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 SwingVault Software GmbH · Wien, Österreich</p>
+      <nav class="footer-legal-links" aria-label="Rechtliche Links">
+        <a href="privacy.html" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
+        <a href="contact.html#impressum" data-de="Impressum" data-en="Imprint">Impressum</a>
+        <a href="accessibility.html" data-de="Barrierefreiheit" data-en="Accessibility">Barrierefreiheit</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div id="cookieBanner" role="region" aria-label="Cookie-Hinweis" aria-live="polite">
+    <p class="cookie-text" data-de="Wir verwenden Cookies für anonyme Nutzungsanalysen. Details in der <a href='privacy.html'>Datenschutzerklärung</a>." data-en="We use cookies for anonymous usage analysis. Details in the <a href='privacy.html'>Privacy Policy</a>.">
+      Wir verwenden Cookies für anonyme Nutzungsanalysen. Details in der <a href="privacy.html">Datenschutzerklärung</a>.
+    </p>
+    <div class="cookie-btns">
+      <button class="btn-ghost" id="cookieDecline" data-de="Ablehnen" data-en="Decline">Ablehnen</button>
+      <button class="btn-primary" id="cookieAccept" data-de="Akzeptieren" data-en="Accept">Akzeptieren</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lizenz &amp; Nutzungsrechte – SwingVault</title>
+  <meta name="description" content="Lizenzbestimmungen, Nutzungsrechte und Haftungsbeschränkungen für SwingVault Software." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .toc {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px 32px; margin-bottom: 48px;
+    }
+    .toc-title {
+      font-family: var(--font-display); font-size: 1.1rem;
+      color: var(--white); margin-bottom: 16px;
+    }
+    .toc ol { padding-left: 20px; }
+    .toc ol li { margin-bottom: 6px; }
+    .toc ol li a { color: var(--gold); font-size: .9rem; text-decoration: none; }
+    .toc ol li a:hover { text-decoration: underline; }
+    .rights-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 28px 0;
+    }
+    .rights-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px;
+    }
+    .rights-card.granted { border-color: rgba(46,125,69,.4); }
+    .rights-card.retained { border-color: rgba(201,168,76,.25); }
+    .rights-card-title {
+      font-family: var(--font-display); font-size: 1.1rem;
+      margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+    }
+    .rights-card.granted .rights-card-title { color: #4caf73; }
+    .rights-card.retained .rights-card-title { color: var(--gold); }
+    .rights-list { list-style: none; padding: 0; }
+    .rights-list li {
+      font-size: .88rem; color: var(--text-muted);
+      padding: 7px 0; border-bottom: 1px solid var(--border);
+      display: flex; gap: 10px; align-items: flex-start; line-height: 1.5;
+    }
+    .rights-list li:last-child { border-bottom: none; }
+    .rights-list li::before { flex-shrink: 0; margin-top: 1px; }
+    .rights-card.granted .rights-list li::before { content: '✓'; color: #4caf73; }
+    .rights-card.retained .rights-list li::before { content: '©'; color: var(--gold); }
+    .plan-badge {
+      display: inline-block; font-family: var(--font-mono);
+      font-size: .72rem; padding: 2px 8px; border-radius: 999px;
+      font-weight: 600; margin-left: 6px; vertical-align: middle;
+    }
+    .badge-free { background: rgba(255,255,255,.08); color: var(--text-muted); }
+    .badge-pro  { background: rgba(201,168,76,.15); color: var(--gold); }
+    .badge-coach{ background: rgba(46,125,69,.2); color: #4caf73; }
+    @media (max-width: 700px) { .rights-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <nav class="site-nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="SwingVault – Startseite">
+        <span class="logo-mark" aria-hidden="true">SV</span>SwingVault
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" data-de="Start" data-en="Home">Start</a></li>
+        <li><a href="product.html" data-de="Produkt" data-en="Product">Produkt</a></li>
+        <li><a href="about.html" data-de="Über uns" data-en="About us">Über uns</a></li>
+        <li><a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="langToggle" aria-label="Sprache wechseln"><span id="langLabel">EN</span></button>
+        <a href="product.html" class="btn-primary">Kostenlos starten</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-tag">Aufgabe 4 – Lizenz</span>
+        <h1 class="page-title">Lizenz &amp; Nutzungsrechte</h1>
+        <p class="page-sub">Endnutzer-Lizenzvertrag (EULA) der SwingVault Software GmbH. Zuletzt aktualisiert: Januar 2025. Durch die Nutzung von SwingVault stimmst du diesen Bedingungen zu.</p>
+      </div>
+    </div>
+
+    <div class="content-wrap">
+
+      <!-- Inhaltsverzeichnis -->
+      <nav class="toc" aria-label="Inhaltsverzeichnis">
+        <div class="toc-title">Inhaltsverzeichnis</div>
+        <ol>
+          <li><a href="#sec1">Vertragsgegenstand</a></li>
+          <li><a href="#sec2">Erworbene Nutzungsrechte</a></li>
+          <li><a href="#sec3">Verbleibende Rechte des Unternehmens</a></li>
+          <li><a href="#sec4">Lizenzbeschränkungen</a></li>
+          <li><a href="#sec5">Haftungsbeschränkungen</a></li>
+          <li><a href="#sec6">Laufzeit und Kündigung</a></li>
+          <li><a href="#sec7">Drittanbieter-Komponenten</a></li>
+          <li><a href="#sec8">Anwendbares Recht</a></li>
+        </ol>
+      </nav>
+
+      <!-- 1 -->
+      <h2 id="sec1">1. Vertragsgegenstand</h2>
+      <p>Dieser Endnutzer-Lizenzvertrag („EULA") ist ein rechtlich bindender Vertrag zwischen Ihnen („Nutzer") und der SwingVault Software GmbH, Wiedner Hauptstraße 120, 1050 Wien, Österreich („SwingVault", „wir").</p>
+      <p>Gegenstand dieses Vertrags ist die Nutzung der SwingVault-Softwareplattform einschließlich der Web-App, der mobilen Applikationen für iOS und Android, der KI-Schwunganalyse-Engine sowie aller zugehörigen Dienste (gemeinsam „Software" oder „Dienst").</p>
+      <p>Die Software wird als Software as a Service (SaaS) in drei Plänen bereitgestellt:</p>
+      <ul>
+        <li><span class="plan-badge badge-free">Free</span> Kostenloser Basis-Zugang mit eingeschränktem Funktionsumfang</li>
+        <li><span class="plan-badge badge-pro">Pro</span> Monatliches Abonnement mit vollem Funktionsumfang für Einzelnutzer</li>
+        <li><span class="plan-badge badge-coach">Coach</span> Monatliches Abonnement mit Mehrnutzer-Verwaltung für Golftrainer</li>
+      </ul>
+
+      <!-- 2 -->
+      <h2 id="sec2">2. Erworbene Nutzungsrechte</h2>
+      <p>Durch den Abschluss eines Abonnements oder die Registrierung eines kostenlosen Kontos erwirbt der Nutzer folgende, nicht ausschließliche, nicht übertragbare Rechte:</p>
+
+      <div class="rights-grid" role="list">
+        <div class="rights-card granted" role="listitem" aria-label="Gewährte Rechte">
+          <h3 class="rights-card-title">
+            <span aria-hidden="true">✓</span> Gewährte Nutzungsrechte
+          </h3>
+          <ul class="rights-list">
+            <li>Zugang zur Web-App auf beliebig vielen eigenen Geräten</li>
+            <li>Installation der mobilen App (iOS/Android) auf bis zu 3 eigenen Geräten <span class="plan-badge badge-pro">Pro</span></li>
+            <li>Upload eigener Schwungvideos zur Analyse</li>
+            <li>Speicherung und Abruf eigener Analysedaten im persönlichen Account</li>
+            <li>Download eigener Analyseberichte als PDF <span class="plan-badge badge-pro">Pro</span></li>
+            <li>Export eigener Analysedaten (JSON/CSV) auf Anfrage</li>
+            <li>Verwaltung von bis zu 20 Schüler-Accounts <span class="plan-badge badge-coach">Coach</span></li>
+            <li>Teilen von Analysen mit direkt eingeladenen Personen</li>
+            <li>Nutzung für private, nicht-kommerzielle Zwecke <span class="plan-badge badge-free">Free</span> <span class="plan-badge badge-pro">Pro</span></li>
+            <li>Nutzung für gewerbliche Coaching-Tätigkeit <span class="plan-badge badge-coach">Coach</span></li>
+          </ul>
+        </div>
+        <div class="rights-card retained" role="listitem" aria-label="Nicht gewährte Rechte">
+          <h3 class="rights-card-title">
+            <span aria-hidden="true">✗</span> Nicht im Umfang enthalten
+          </h3>
+          <ul class="rights-list">
+            <li>Zugang zum Quellcode der Software oder des KI-Modells</li>
+            <li>Weiterlizenzierung oder Weiterverkauf des Dienstes an Dritte</li>
+            <li>Nutzung der Analyse-Engine außerhalb der SwingVault-Plattform</li>
+            <li>Erstellung abgeleiteter Produkte auf Basis der SwingVault-Technologie</li>
+            <li>Öffentliche Verbreitung von Analyseergebnissen mit SwingVault-Branding ohne Genehmigung</li>
+            <li>Automatisierter Massenzugriff (Scraping, Bots) auf die Plattform</li>
+            <li>Nutzung für Wettbewerber-Produkte oder Reverse Engineering</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <h2 id="sec3">3. Verbleibende Rechte des Unternehmens</h2>
+      <p>SwingVault behält sich alle Rechte vor, die nicht ausdrücklich in Abschnitt 2 gewährt werden. Insbesondere verbleiben folgende Rechte ausschließlich bei SwingVault:</p>
+      <ul>
+        <li><strong>Geistiges Eigentum:</strong> Alle Urheberrechte, Patente, Marken, Geschäftsgeheimnisse und sonstigen Schutzrechte an der Software, der KI-Analyse-Engine, den Algorithmen, dem Quellcode, dem Design und den Markenzeichen verbleiben bei SwingVault.</li>
+        <li><strong>KI-Modell:</strong> Das trainierte Schwunganalyse-Modell, die Gewichte und die Trainingsdaten sind proprietäres geistiges Eigentum von SwingVault und unterliegen dem Schutz von Betriebs- und Geschäftsgeheimnissen.</li>
+        <li><strong>Marken:</strong> „SwingVault", „SwingArc" und die Farbmarke Vault Green / Swing Gold sind eingetragene oder angemeldete Marken der SwingVault Software GmbH. Eine Verwendung ohne schriftliche Genehmigung ist untersagt.</li>
+        <li><strong>Anonymisierte Daten:</strong> SwingVault behält das Recht, vollständig anonymisierte und aggregierte Nutzungsdaten zur Verbesserung des KI-Modells zu verwenden. Personenbezogene Daten werden hierfür nicht verwendet.</li>
+        <li><strong>Infrastruktur:</strong> Server, Datenbanken, Netzwerkarchitektur und technische Dokumentation sind ausschließliches Eigentum von SwingVault.</li>
+      </ul>
+
+      <!-- 4 -->
+      <h2 id="sec4">4. Lizenzbeschränkungen</h2>
+      <p>Der Nutzer verpflichtet sich, folgende Handlungen zu unterlassen:</p>
+      <ul>
+        <li>Dekompilierung, Disassemblierung oder sonstiges Reverse Engineering der Software</li>
+        <li>Entfernung oder Veränderung von Urheberrechts- oder Markenhinweisen</li>
+        <li>Übertragung des Accounts oder der Zugangsdaten an Dritte</li>
+        <li>Nutzung der Software für rechtswidrige Zwecke oder zur Verletzung von Rechten Dritter</li>
+        <li>Systematisches Abrufen von Inhalten durch automatisierte Skripte oder Crawling</li>
+        <li>Umgehung von Sicherheits- oder Authentifizierungsmechanismen</li>
+      </ul>
+
+      <!-- 5 -->
+      <h2 id="sec5">5. Haftungsbeschränkungen</h2>
+
+      <div class="info-box" role="note">
+        <strong>Wichtiger Hinweis:</strong> SwingVault ist ein Analyse- und Coaching-Hilfsmittel. Die Ergebnisse ersetzen keine professionelle Beratung durch einen zertifizierten Golftrainer oder medizinischen Fachmann.
+      </div>
+
+      <h3>5.1 Haftungsausschluss für Analyseergebnisse</h3>
+      <p>SwingVault übernimmt keine Gewährleistung für die Richtigkeit, Vollständigkeit oder Eignung der Analyseergebnisse für einen bestimmten Zweck. Die KI-gestützte Schwunganalyse basiert auf statistischen Modellen und kann Fehler enthalten. Verletzungen oder gesundheitliche Schäden, die infolge der Befolgung von KI-Empfehlungen entstehen, begründen keine Haftung von SwingVault.</p>
+
+      <h3>5.2 Verfügbarkeitshaftung</h3>
+      <p>SwingVault strebt eine Verfügbarkeit von 99,5 % pro Kalendermonat an (ausgenommen geplante Wartungsfenster), übernimmt jedoch keine Garantie für ununterbrochene Verfügbarkeit. SwingVault haftet nicht für Schäden, die durch vorübergehende Nichtverfügbarkeit des Dienstes entstehen, sofern diese nicht auf grobe Fahrlässigkeit oder Vorsatz zurückzuführen sind.</p>
+
+      <h3>5.3 Datenverlust</h3>
+      <p>SwingVault führt regelmäßige Datensicherungen durch, übernimmt jedoch keine Haftung für den Verlust von Nutzerdaten, die durch technische Fehler, höhere Gewalt oder Handlungen des Nutzers entstehen. Nutzern wird empfohlen, wichtige Analyseberichte lokal zu speichern.</p>
+
+      <h3>5.4 Haftungsobergrenze</h3>
+      <p>Die Gesamthaftung von SwingVault gegenüber einem Nutzer ist, soweit gesetzlich zulässig, auf den Betrag begrenzt, den der Nutzer in den letzten 12 Monaten vor dem schadensbegründenden Ereignis an SwingVault gezahlt hat. Bei Free-Plan-Nutzern ist die Haftung auf € 50,– begrenzt.</p>
+
+      <h3>5.5 Ausschluss von Folgeschäden</h3>
+      <p>Soweit gesetzlich zulässig, haftet SwingVault nicht für mittelbare Schäden, entgangenen Gewinn, Datenverlust oder sonstige Folgeschäden, die aus der Nutzung oder Nichtnutzbarkeit des Dienstes resultieren – auch wenn SwingVault auf die Möglichkeit solcher Schäden hingewiesen wurde.</p>
+
+      <h3>5.6 Unberührte gesetzliche Haftung</h3>
+      <p>Die vorstehenden Haftungsbeschränkungen gelten nicht für Schäden aus der Verletzung von Leben, Körper oder Gesundheit sowie für Schäden, die auf vorsätzlichem oder grob fahrlässigem Verhalten von SwingVault beruhen. Zwingende gesetzliche Haftungsregelungen (insbesondere nach dem österreichischen ABGB und dem PHG) bleiben unberührt.</p>
+
+      <!-- 6 -->
+      <h2 id="sec6">6. Laufzeit und Kündigung</h2>
+      <p>Die Lizenz beginnt mit der Registrierung und läuft auf unbestimmte Zeit (Free Plan) oder für die jeweilige Abonnementlaufzeit (Pro/Coach).</p>
+      <ul>
+        <li><strong>Kündigung durch den Nutzer:</strong> Jederzeit zum Ende der bezahlten Periode über die Account-Einstellungen möglich. Es erfolgt keine anteilige Rückerstattung.</li>
+        <li><strong>Kündigung durch SwingVault:</strong> Bei schwerwiegenden Verstößen gegen diese EULA kann SwingVault den Zugang mit sofortiger Wirkung sperren.</li>
+        <li><strong>Folgen der Kündigung:</strong> Nach Vertragsende erlöschen alle Nutzungsrechte. Der Nutzer kann innerhalb von 30 Tagen nach Kündigung seine Daten exportieren; danach werden sie gelöscht.</li>
+      </ul>
+
+      <!-- 7 -->
+      <h2 id="sec7">7. Drittanbieter-Komponenten</h2>
+      <p>SwingVault verwendet Open-Source-Komponenten unter folgenden Lizenzen:</p>
+      <table>
+        <thead>
+          <tr><th>Komponente</th><th>Lizenz</th><th>Verwendung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cormorant Garamond</td><td>Open Font Licence (OFL)</td><td>Display-Schriftart</td></tr>
+          <tr><td>DM Sans</td><td>Open Font Licence (OFL)</td><td>Interface-Schriftart</td></tr>
+          <tr><td>DM Mono</td><td>Open Font Licence (OFL)</td><td>Monospace-Schriftart</td></tr>
+          <tr><td>MediaPipe (Google)</td><td>Apache 2.0</td><td>Pose-Erkennung im KI-Modell</td></tr>
+          <tr><td>TensorFlow.js</td><td>Apache 2.0</td><td>ML-Inferenz im Browser</td></tr>
+        </tbody>
+      </table>
+      <p>Die vollständigen Lizenztexte der verwendeten Open-Source-Komponenten sind auf Anfrage erhältlich unter <a href="mailto:legal@swingvault.app">legal@swingvault.app</a>.</p>
+
+      <!-- 8 -->
+      <h2 id="sec8">8. Anwendbares Recht und Gerichtsstand</h2>
+      <p>Dieser Vertrag unterliegt dem Recht der Republik Österreich unter Ausschluss des UN-Kaufrechts (CISG). Gerichtsstand für Streitigkeiten aus oder im Zusammenhang mit diesem Vertrag ist Wien, Österreich, soweit gesetzlich zulässig.</p>
+      <p>Für Verbraucher im Sinne des Konsumentenschutzgesetzes (KSchG) gelten ergänzend die zwingenden Schutzvorschriften des österreichischen Verbraucherrechts.</p>
+      <p>Bei Fragen zu dieser Lizenz wende dich an: <a href="mailto:legal@swingvault.app">legal@swingvault.app</a></p>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="SwingVault Startseite">
+          <span class="logo-mark" aria-hidden="true">SV</span> SwingVault
+        </a>
+        <p class="footer-tagline">KI-gestützte Golfschwunganalyse für Amateure, Profis und Trainer.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Produkt</div>
+        <ul>
+          <li><a href="product.html">Features</a></li>
+          <li><a href="product.html#pricing">Preise</a></li>
+          <li><a href="license.html">Lizenz</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Unternehmen</div>
+        <ul>
+          <li><a href="about.html">Über uns</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="contact.html#impressum">Impressum</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Rechtliches</div>
+        <ul>
+          <li><a href="privacy.html">Datenschutz</a></li>
+          <li><a href="accessibility.html">Barrierefreiheit</a></li>
+          <li><a href="license.html">AGB</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 SwingVault Software GmbH · Wien, Österreich</p>
+      <nav class="footer-legal-links" aria-label="Rechtliche Links">
+        <a href="privacy.html">Datenschutz</a>
+        <a href="contact.html#impressum">Impressum</a>
+        <a href="accessibility.html">Barrierefreiheit</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="cookieBanner" role="region" aria-label="Cookie-Hinweis" aria-live="polite">
+    <p class="cookie-text">Wir verwenden Cookies für anonyme Nutzungsanalysen. Details in der <a href="privacy.html">Datenschutzerklärung</a>.</p>
+    <div class="cookie-btns">
+      <button class="btn-ghost" id="cookieDecline">Ablehnen</button>
+      <button class="btn-primary" id="cookieAccept">Akzeptieren</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
